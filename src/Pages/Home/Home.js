@@ -9,6 +9,7 @@ const Home = () => {
             .then(res => res.json())
 
     ))
+    
     return (
         <div className="Home pt-5">
             <div className="inner__home conatiner">

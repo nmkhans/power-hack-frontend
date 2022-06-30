@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import BillInfo from '../BillInfo/BillInfo';
 import Loading from './../Loading/Loading';
 
-const BillTable = ({billingInfo, isLoading, }) => {
+const BillTable = ({billingInfo, isLoading, refetch}) => {
     
 
     if(isLoading) {
@@ -29,7 +29,7 @@ const BillTable = ({billingInfo, isLoading, }) => {
                                 </thead>
                                 <tbody>
                                     {
-                                        billingInfo.map(info => <BillInfo info={info} key={info._id} />)
+                                        billingInfo.map(info => <BillInfo info={info} key={info._id} refetch={refetch} />)
                                     }
                                 </tbody>
                             </Table>
