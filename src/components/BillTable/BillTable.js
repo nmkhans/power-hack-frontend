@@ -1,15 +1,10 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import BillInfo from '../BillInfo/BillInfo';
-import { useQuery } from 'react-query';
 import Loading from './../Loading/Loading';
 
-const BillTable = () => {
-    const { data: billingInfo, isLoading } = useQuery('billing-list', () => (
-        fetch('http://localhost:5000/billing-list')
-        .then(res => res.json())
-        
-    ))
+const BillTable = ({billingInfo, isLoading, }) => {
+    
 
     if(isLoading) {
         return <Loading />

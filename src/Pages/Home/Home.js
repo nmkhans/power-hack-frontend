@@ -1,14 +1,20 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 import BillHeader from '../../components/BillHeader/BillHeader';
 import BillTable from './../../components/BillTable/BillTable';
 
 const Home = () => {
+    const { data: billingInfo, isLoading, refetch } = useQuery('billing-list', () => (
+        fetch('http://localhost:5000/billing-list')
+            .then(res => res.json())
+
+    ))
     return (
         <div className="Home pt-5">
             <div className="inner__home conatiner">
                 <div className="home__content">
-                    <BillHeader />
-                    <BillTable />
+                    <BillHeader refetch={refetch} />
+                    <BillTable billingInfo={billingInfo} isLoading={isLoading} refetch={refetch} />
                 </div>
             </div>
         </div>

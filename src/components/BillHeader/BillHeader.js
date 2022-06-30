@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import BillModal from '../BillModal/BillModal';
 
-const BillHeader = () => {
+const BillHeader = ({ refetch }) => {
     const [modalShow, setModalShow] = useState(false);
 
     return (
@@ -21,7 +21,7 @@ const BillHeader = () => {
                         </div>
                         <div className="add__bill">
                             <Button onClick={() => setModalShow(true)} variant="light" bg="dark">Add New Bill</Button>
-                            <BillModal show={modalShow} setModalShow={setModalShow} />
+                            <BillModal show={modalShow} setModalShow={setModalShow} refetch={refetch} />
                         </div>
                     </div>
                 </div>
