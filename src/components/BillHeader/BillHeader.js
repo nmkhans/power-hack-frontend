@@ -21,7 +21,7 @@ const BillHeader = () => {
                         </div>
                         <div className="add__bill">
                             <Button onClick={() => setModalShow(true)} variant="light" bg="dark">Add New Bill</Button>
-                            <BillModal show={modalShow} onHide={() => setModalShow(false)} />
+                            <BillModal show={modalShow} setModalShow={setModalShow} />
                         </div>
                     </div>
                 </div>

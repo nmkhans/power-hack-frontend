@@ -3,6 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 const BillModal = (props) => {
+
+    const handleSubmit = () => {
+        props.setModalShow(false)
+    }
+
     return (
         <Modal
             {...props}
@@ -12,7 +17,7 @@ const BillModal = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
+                    Add New Bill Information
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -24,7 +29,7 @@ const BillModal = (props) => {
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
+                <Button variant="dark" onClick={handleSubmit}>Close</Button>
             </Modal.Footer>
         </Modal>
     );
