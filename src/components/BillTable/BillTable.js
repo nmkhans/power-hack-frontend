@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Table from 'react-bootstrap/Table';
 import BillInfo from '../BillInfo/BillInfo';
+import { useQuery } from 'react-query';
+import Loading from './../Loading/Loading';
 
 const BillTable = () => {
-    const [billInfo, setBillInfo] = useState([]);
-    useEffect(() => {
-        fetch('info.json')
-            .then(res => res.json())
-            .then(data => setBillInfo(data))
-    }, [])
+    const { data: billingInfo, isLoading } = useQuery('billing-list', () => (
+        fetch('http://localhost:5000/billing-list')
+        .then(res => res.json())
+        
+    ))
+
+    if(isLoading) {
+        return <Loading />
+    }
 
     return (
         <div className="BillTable mt-5">
@@ -29,7 +34,7 @@ const BillTable = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        billInfo.map(info => <BillInfo info={info} />)
+                                        billingInfo.map(info => <BillInfo info={info} key={info._id} />)
                                     }
                                 </tbody>
                             </Table>
