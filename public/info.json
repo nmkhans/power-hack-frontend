@@ -1,0 +1,23 @@
+[
+    {
+        "_id": 1,
+        "fullName": "Moin Khan",
+        "email": "nurmoin05@gmail.com",
+        "phone": "0123456780",
+        "paidAmount": 10000
+    },
+    {
+        "_id": 2,
+        "fullName": "Fahim",
+        "email": "fahim@gmail.com",
+        "phone": "0123456780",
+        "paidAmount": 400
+    },
+    {
+        "_id": 3,
+        "fullName": "Noman",
+        "email": "noman@gmail.com",
+        "phone": "0123456780",
+        "paidAmount": 600
+    }
+]

@@ -1,5 +1,6 @@
 import React from 'react';
 import BillHeader from '../../components/BillHeader/BillHeader';
+import BillTable from './../../components/BillTable/BillTable';
 
 const Home = () => {
     return (
@@ -7,6 +8,7 @@ const Home = () => {
             <div className="inner__home conatiner">
                 <div className="home__content">
                     <BillHeader />
+                    <BillTable />
                 </div>
             </div>
         </div>
