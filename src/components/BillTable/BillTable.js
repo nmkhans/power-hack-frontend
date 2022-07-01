@@ -3,13 +3,14 @@ import Table from 'react-bootstrap/Table';
 import BillInfo from '../BillInfo/BillInfo';
 import Loading from './../Loading/Loading';
 
-const BillTable = ({billingInfo, isLoading, refetch}) => {
-    
+const BillTable = ({ billingInfo, isLoading, refetch }) => {
 
-    if(isLoading) {
+    
+    
+    if (isLoading) {
         return <Loading />
     }
-
+    
     return (
         <div className="BillTable mt-5">
             <div className="inner__billTable container">
@@ -29,8 +30,9 @@ const BillTable = ({billingInfo, isLoading, refetch}) => {
                                 </thead>
                                 <tbody>
                                     {
-                                        billingInfo.map(info => <BillInfo info={info} key={info._id} refetch={refetch} />)
+                                        billingInfo.map(info => <BillInfo info={info} key={info._id} refetch={refetch}  />)
                                     }
+                                    
                                 </tbody>
                             </Table>
                         </div>
