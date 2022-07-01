@@ -8,7 +8,7 @@ const BillModal = (props) => {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/add-billing', {
+        fetch('https://nmk-power-hack.herokuapp.com/add-billing', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

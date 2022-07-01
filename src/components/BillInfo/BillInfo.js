@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import UpdateModal from './../UpdateModal/UpdateModal';
 import { toast } from 'react-toastify';
@@ -8,7 +8,7 @@ const BillInfo = ({ info, refetch }) => {
     const [modalShow, setModalShow] = useState(false);
     const { _id, fullName, email, phone, paidAmount } = info;
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-billing/${id}`, {
+        fetch(`https://nmk-power-hack.herokuapp.com/delete-billing/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json"

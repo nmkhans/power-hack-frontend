@@ -7,14 +7,14 @@ const Header = () => {
     const [total, setTotal] = useState(0);
 
     const { data, refetch } = useQuery('billing-list', () => (
-        fetch('http://localhost:5000/billing-list')
+        fetch('https://nmk-power-hack.herokuapp.com/billing-list')
             .then(res => res.json())
 
     ))
 
     useEffect(() => {
         let total = 0;
-        data.forEach(item => {
+        data?.forEach(item => {
             total = total + parseInt(item.paidAmount);
             setTotal(total)
             refetch();

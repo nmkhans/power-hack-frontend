@@ -8,21 +8,21 @@ const UpdateModal = (props) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch(`http://localhost:5000/update-billing/${props.editId}`, {
+        fetch(`https://nmk-power-hack.herokuapp.com/update-billing/${props.editId}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0) {
-                props.setModalShow(false);
-                props.refetch();
-                toast.success('Bill Updated')
-            };
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    props.setModalShow(false);
+                    props.refetch();
+                    toast.success('Bill Updated')
+                };
+            })
     };
 
     return (

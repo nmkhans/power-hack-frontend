@@ -5,11 +5,11 @@ import BillTable from './../../components/BillTable/BillTable';
 
 const Home = () => {
     const { data: billingInfo, isLoading, refetch } = useQuery('billing-list', () => (
-        fetch('http://localhost:5000/billing-list')
+        fetch('https://nmk-power-hack.herokuapp.com/billing-list')
             .then(res => res.json())
 
     ))
-    
+
     return (
         <div className="Home pt-5">
             <div className="inner__home conatiner">
