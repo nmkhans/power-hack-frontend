@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 const Header = () => {
+    const [total, setTotal] = useState(0);
+
+    const { data, refetch } = useQuery('billing-list', () => (
+        fetch('http://localhost:5000/billing-list')
+            .then(res => res.json())
+
+    ))
+
+    useEffect(() => {
+        let total = 0;
+        data.forEach(item => {
+            total = total + parseInt(item.paidAmount);
+            setTotal(total)
+            refetch();
+        })
+    }, [data, refetch])
+
     return (
         <div className="Header">
             <div className="inner__header">
@@ -17,7 +35,7 @@ const Header = () => {
                             />
                             <Navbar.Collapse id="power_nav">
                                 <Nav className="ms-auto">
-                                    <p className="text-white me-3 pt-2" as={Link} to="#home">Paid Total: 0</p>
+                                    <p className="text-white me-3 pt-2" as={Link} to="#home">Paid Total: {total}</p>
                                     <Nav.Link className="text-white me-3" as={Link} to="#link">Login</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>
