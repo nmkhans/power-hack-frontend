@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 const BillModal = (props) => {
 
@@ -20,6 +21,7 @@ const BillModal = (props) => {
                     reset();
                     props.refetch();
                     props.setModalShow(false);
+                    toast.success('New Bill Added')
                 }
             })
     };

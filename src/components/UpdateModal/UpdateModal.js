@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 const UpdateModal = (props) => {
 
@@ -19,6 +20,7 @@ const UpdateModal = (props) => {
             if(data.modifiedCount > 0) {
                 props.setModalShow(false);
                 props.refetch();
+                toast.success('Bill Updated')
             };
         })
     };

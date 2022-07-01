@@ -5,8 +5,6 @@ import Loading from './../Loading/Loading';
 
 const BillTable = ({ billingInfo, isLoading, refetch }) => {
 
-    
-    
     if (isLoading) {
         return <Loading />
     }

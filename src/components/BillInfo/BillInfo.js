@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import UpdateModal from './../UpdateModal/UpdateModal';
+import { toast } from 'react-toastify';
 
 const BillInfo = ({ info, refetch }) => {
     const [editId, setEditId] = useState('');
@@ -17,6 +18,7 @@ const BillInfo = ({ info, refetch }) => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     refetch();
+                    toast.success("Bill Deleted");
                 }
             })
     }
